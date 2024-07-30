@@ -62,7 +62,7 @@ def classify_emails(file_path):
                     email, password = line.strip().split(":")
                     domain = email.split("@")[1]
 
-                    file_name = os.path.join("emails", f"{domain}.txt")
+                    file_name = os.path.join("Emails", f"{domain}.txt")
                     with open(file_name, 'a') as domain_file:
                         domain_file.write(f"{email}:{password}\n")
                 except: pass
