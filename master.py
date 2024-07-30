@@ -23,7 +23,8 @@ def process_menu():
     menu = """
     [-----------------------------]
         1. Tool Edit Combo.
-        2. Thoát Tool.
+        2. Remove Duplicate.
+        3. Thoát Tool.
     [-----------------------------]
 """
     print (Fore.WHITE + Style.BRIGHT + menu)
@@ -35,6 +36,10 @@ def process_menu():
         classify_emails(file_path)
 
     if choice_user == '2':
+        os.system('cls')
+        file_path = chon_file()
+
+    if choice_user == '3':
         quit()
     else:
         process_menu()
@@ -71,6 +76,22 @@ def chon_file():
     root.withdraw()  # Ẩn cửa sổ gốc Tkinter
     duong_dan = filedialog.askopenfilename()  # Mở cửa sổ chọn file
     return duong_dan
+
+def remove_duplicates(file_path):
+    output = file_path.replace(".txt", "_no_duplicates.txt")
+
+    # Đọc các dòng từ file đầu vào
+    with open(file_path, "r") as f_in:
+        lines = f_in.readlines()
+
+    # Loại bỏ các dòng trùng lặp
+    unique_lines = list(dict.fromkeys(lines))
+
+    # Ghi các dòng duy nhất vào file đầu ra
+    with open(output, "w") as f_out:
+        f_out.writelines(unique_lines)
+
+    print("Done")
 
 logo()
 process_menu()
