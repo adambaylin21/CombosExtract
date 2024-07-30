@@ -38,6 +38,7 @@ def process_menu():
     if choice_user == '2':
         os.system('cls')
         file_path = chon_file()
+        remove_duplicates(file_path)
 
     if choice_user == '3':
         quit()
