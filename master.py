@@ -49,7 +49,7 @@ def classify_emails(file_path):
     start_time = time.time()
     total_lines = 0
     
-    with open(file_path, 'r') as file:
+    with open(file_path, 'r', encoding='utf-8', errors='ignore') as file:
         total_lines = sum(1 for _ in file)
         file.seek(0)  # Quay về đầu file
 
@@ -82,7 +82,7 @@ def remove_duplicates(file_path):
     output = file_path.replace(".txt", "_no_duplicates.txt")
 
     # Đọc các dòng từ file đầu vào
-    with open(file_path, "r") as f_in:
+    with open(file_path, "r", encoding='utf-8', errors='ignore') as f_in:
         lines = f_in.readlines()
 
     # Loại bỏ các dòng trùng lặp
